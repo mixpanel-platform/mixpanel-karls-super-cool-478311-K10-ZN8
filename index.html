@@ -16,6 +16,23 @@
     <h1>Hello, World!</h1>
     <script>
       $(function () {
+        
+  
+        var params = {
+        from: moment().subtract(6, 'weeks'),
+        to: moment(),
+        unit: 'week',                      // specifies the the bucket size; can be 'day' or 'week'
+       // interval_count: 1,                // the number of desired units
+      //  limit: 100,                       // maximum number of results to return
+    
+        // the following are undefined by default
+        born_event: '$campaign_delivery',             // if present, an event that must be tracked within the time frame before the user can be included in the query
+       // where: 'properties["age"] == 21', // an expression to filter by
+      //  segment: '$browser',              // a segmentation expression or event property
+    };
+        MP.api.retention('$campaign_open', params).done(function(results) {
+                 console.log(results.values());
+            });
         $('#container').highcharts({
             chart: {
                 type: 'area'
@@ -60,21 +77,7 @@
                 }
             },
             
-            var params = {
-                  from: moment().subtract(6, 'weeks'),
-                  to: moment(),
-                  unit: 'week',                      // specifies the the bucket size; can be 'day' or 'week'
-                 // interval_count: 1,                // the number of desired units
-                //  limit: 100,                       // maximum number of results to return
-              
-                  // the following are undefined by default
-                  born_event: '$campaign_delivery',             // if present, an event that must be tracked within the time frame before the user can be included in the query
-                 // where: 'properties["age"] == 21', // an expression to filter by
-                //  segment: '$browser',              // a segmentation expression or event property
-              };
-            MP.api.retention('$campaign_open', params).done(function(results) {
-                 console.log(results.values());
-            });
+
             series: [{
                 name: 'Asia',
                 data: [502, 635, 809, 947, 1402, 3634, 5268]
