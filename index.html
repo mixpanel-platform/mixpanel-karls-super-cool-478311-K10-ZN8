@@ -78,6 +78,7 @@
         
             MP.api.retention('$campaign_open', params).done(function(results) {
                    console.log(results.values()); //Object.keys(results));
+                   var d1 = Object.keys(results);
                    var data = results.values();
                    var data1 = Object.keys(data);
                    
