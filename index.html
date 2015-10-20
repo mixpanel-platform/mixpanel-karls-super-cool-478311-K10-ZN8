@@ -81,7 +81,9 @@
                    var d1 = Object.keys(results);
                    var data = results.values();
                    var data1 = Object.keys(data);
-                   
+                   console.log(d1);
+                   console.log(data);
+                   console.log(data1);
                    for (var i = 0; i < selection; i++){
                      var top = data[moment().subtract(i, 'weeks').format('YYYY-MM-DD')];
                      console.log(top);
