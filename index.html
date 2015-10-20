@@ -79,7 +79,7 @@
             MP.api.retention('$campaign_open', params).done(function(results) {
                    console.log(results.values()); //Object.keys(results));
                    var data = results.values();
-                   var data1 = data.keys();
+                   var data1 = Object.keys(data);
                    
                    for (var i = 0; i < selection; i++){
                      var top = data[moment().subtract(i, 'weeks').format('YYYY-MM-DD')];
