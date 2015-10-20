@@ -71,21 +71,22 @@
           //  limit: 100,                       // maximum number of results to return
         
             // the following are undefined by default
-            born_event: '$campaign_delivery',             // if present, an event that must be tracked within the time frame before the user can be included in the query
+            born_event: 'Account Created',             // if present, an event that must be tracked within the time frame before the user can be included in the query
            // where: 'properties["age"] == 21', // an expression to filter by
           //  segment: '$browser',              // a segmentation expression or event property
         };
         
-            MP.api.retention('$campaign_open', params).done(function(results) {
+            MP.api.retention('Song Played', params).done(function(results) {
                    console.log(results.values()); //Object.keys(results));
                    var d1 = Object.keys(results);
                    var data = results.values();
                    var data1 = Object.keys(data);
                    console.log(d1);
                    console.log(data);
-                   console.log(data1);
-                   for (var i = 0; i < selection; i++){
-                     var top = data[moment().subtract(i, 'weeks').format('YYYY-MM-DD')];
+                  // console.log(data1);
+                  // for (var i = 0; i < selection; i++){
+                  for (var i = 0; i < data1.length; i++){
+                     var top = data1[i];//data[moment().subtract(i, 'weeks').format('YYYY-MM-DD')];
                      console.log(top);
                      
                    }  
