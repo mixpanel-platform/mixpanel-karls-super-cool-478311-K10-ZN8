@@ -81,7 +81,7 @@
                    var data = results.values();
                    
                    for (var i = 0; i < selection; i++){
-                     var top = data['2015-10-12'];  //moment().subtract(i, 'weeks').format('YYYY-MM-DD')];
+                     var top = data[moment().subtract(i, 'weeks').format('YYYY-MM-DD')];
                      console.log(top);
                      
                    }  
