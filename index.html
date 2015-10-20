@@ -51,6 +51,8 @@
     };
 
 
+    var runData = []
+
     
       $(function () {
         
@@ -76,6 +78,13 @@
         
             MP.api.retention('$campaign_open', params).done(function(results) {
                    console.log(results.values());
+                   
+                   
+                   for (var i = 0, i<selection, i++){
+                     var top = queryRange[moment.subtract(i, 'weeks').format('YYYY-MM-DD')];
+                     console.log(top.values());
+                     
+                   }  
         
               });
         });
@@ -131,7 +140,9 @@
             },
             
 
-            series: [{
+            series: runData
+            /*
+            [{
                 name: 'Asia',
                 data: [502, 635, 809, 947, 1402, 3634, 5268]
             }, {
@@ -147,6 +158,7 @@
                 name: 'Oceania',
                 data: [2, 2, 2, 6, 13, 30, 46]
             }]
+            */
         });
     });
     
